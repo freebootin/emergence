@@ -13,7 +13,8 @@ canvas.height = height;
 canvas.width = width;
 
 function drawSquare(xStart, yStart, side, color) {
-  /**
+  /** @function
+   * @name drawSquare
    * Draw a square at coordinates given.
    *
    * @param {number} xStart The upper left corner x position.
@@ -28,6 +29,15 @@ function drawSquare(xStart, yStart, side, color) {
 }
 
 function drawBoard(board, xStart, yStart, tileSize) {
+  /** @function
+   * @name drawBoard
+   * Draws a board using a board object.
+   *
+   * @param {array} board The gameboard, a 2d array of string specified colors.
+   * @param {number} xStart The starting x position.
+   * @param {number} yStart The starting y position.
+   * @param {number} tileSize The size of the sides of each square board tile.
+   */
   for (let i = 0; i < board.length; i++) {
     let nextY = yStart + (tileSize * i);
     for (let j = 0; j < board[i].length; j++) {
@@ -38,6 +48,12 @@ function drawBoard(board, xStart, yStart, tileSize) {
 }
 
 function animate() {
+  /** @function
+   * @name animate
+   * Animates the canvas be repeatedly calling game logic and updating the
+   * canvas.
+   *
+   */
   requestAnimationFrame(animate);
   c.clearRect(0, 0, canvas.width, canvas.height);
 
