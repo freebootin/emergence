@@ -2,12 +2,17 @@ const height = 600;
 const width = 600;
 const canvas = document.querySelector('#canvas');
 const c = canvas.getContext('2d');
+const startPosition = {x: 50, y: 50};
 
 // gameboard
-const gameboard = [
-  [ 'blue', 'green', 'yellow', 'red' ],
-  [ 'red', 'blue', 'green', 'yellow']
-];
+const gameboard = {
+  board: [
+        [ 'blue', 'green', 'yellow', 'red' ],
+        [ 'red', 'blue', 'green', 'yellow']
+  ],
+  tileSize: 50,
+};
+
 
 canvas.height = height;
 canvas.width = width;
@@ -57,7 +62,7 @@ function animate() {
   requestAnimationFrame(animate);
   c.clearRect(0, 0, canvas.width, canvas.height);
 
-  drawBoard(gameboard, 50, 50, 50);
+  drawBoard(gameboard.board, startPosition.x, startPosition.y, gameboard.tileSize);
 
   // update game state and draw screen
 
