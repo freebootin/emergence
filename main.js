@@ -4,7 +4,10 @@ const canvas = document.querySelector('#canvas');
 const c = canvas.getContext('2d');
 
 // gameboard
-const gameboard = [ 'blue', 'green', 'yellow', 'red' ];
+const gameboard = [
+  [ 'blue', 'green', 'yellow', 'red' ],
+  [ 'red', 'blue', 'green', 'yellow']
+];
 
 canvas.height = height;
 canvas.width = width;
@@ -21,8 +24,11 @@ function drawBoard(board) {
   let yStart = 50;
 
   for (let i = 0; i < board.length; i++) {
-    let nextX = xStart + (xStart * i);
-    drawSquare(nextX, yStart, 50, 50, board[i]);
+    let nextY = yStart + (yStart * i);
+    for (let j = 0; j < board[i].length; j++) {
+      let nextX = xStart + (xStart * j);
+      drawSquare(nextX, nextY, 50, 50, board[i][j]);
+    }
   }
 }
 
