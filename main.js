@@ -6,26 +6,6 @@ const startPosition = {x: 0, y: 0};
 const tileSize = 10;
 const gameboard = generateBoard(height, width, tileSize);
 
-// gameboard
-// const gameboard = {
-//   board: [
-//         [ 'black', 'blue', 'black', 'blue','black', 'blue', 'black', 'blue','black', 'blue', 'black', 'blue'],
-//         [ 'blue', 'black', 'blue', 'black', 'blue', 'black', 'blue', 'black', 'blue', 'black', 'blue', 'black'],
-//         [ 'black', 'blue', 'black', 'blue','black', 'blue', 'black', 'blue','black', 'blue', 'black', 'blue'],
-//         [ 'blue', 'black', 'blue', 'black', 'blue', 'black', 'blue', 'black', 'blue', 'black', 'blue', 'black'],
-//         [ 'black', 'blue', 'black', 'blue','black', 'blue', 'black', 'blue','black', 'blue', 'black', 'blue'],
-//         [ 'blue', 'black', 'blue', 'black', 'blue', 'black', 'blue', 'black', 'blue', 'black', 'blue', 'black'],
-//         [ 'black', 'blue', 'black', 'blue','black', 'blue', 'black', 'blue','black', 'blue', 'black', 'blue'],
-//         [ 'blue', 'black', 'blue', 'black', 'blue', 'black', 'blue', 'black', 'blue', 'black', 'blue', 'black'],
-//         [ 'black', 'blue', 'black', 'blue','black', 'blue', 'black', 'blue','black', 'blue', 'black', 'blue'],
-//         [ 'blue', 'black', 'blue', 'black', 'blue', 'black', 'blue', 'black', 'blue', 'black', 'blue', 'black'],
-//         [ 'black', 'blue', 'black', 'blue','black', 'blue', 'black', 'blue','black', 'blue', 'black', 'blue'],
-//         [ 'blue', 'black', 'blue', 'black', 'blue', 'black', 'blue', 'black', 'blue', 'black', 'blue', 'black']
-//   ],
-//   tileSize: 50,
-// };
-
-
 canvas.height = height;
 canvas.width = width;
 
@@ -94,7 +74,6 @@ function animate() {
    * canvas.
    *
    */
-  console.log(gameboard);
   requestAnimationFrame(animate);
   c.clearRect(0, 0, canvas.width, canvas.height);
 
