@@ -2,20 +2,53 @@ const height = 600;
 const width = 600;
 const canvas = document.querySelector('#canvas');
 const c = canvas.getContext('2d');
-const startPosition = {x: 50, y: 50};
+const startPosition = {x: 0, y: 0};
+const tileSize = 10;
+const gameboard = generateBoard(height, width, tileSize);
 
 // gameboard
-const gameboard = {
-  board: [
-        [ 'blue', 'green', 'yellow', 'red' ],
-        [ 'red', 'blue', 'green', 'yellow']
-  ],
-  tileSize: 50,
-};
+// const gameboard = {
+//   board: [
+//         [ 'black', 'blue', 'black', 'blue','black', 'blue', 'black', 'blue','black', 'blue', 'black', 'blue'],
+//         [ 'blue', 'black', 'blue', 'black', 'blue', 'black', 'blue', 'black', 'blue', 'black', 'blue', 'black'],
+//         [ 'black', 'blue', 'black', 'blue','black', 'blue', 'black', 'blue','black', 'blue', 'black', 'blue'],
+//         [ 'blue', 'black', 'blue', 'black', 'blue', 'black', 'blue', 'black', 'blue', 'black', 'blue', 'black'],
+//         [ 'black', 'blue', 'black', 'blue','black', 'blue', 'black', 'blue','black', 'blue', 'black', 'blue'],
+//         [ 'blue', 'black', 'blue', 'black', 'blue', 'black', 'blue', 'black', 'blue', 'black', 'blue', 'black'],
+//         [ 'black', 'blue', 'black', 'blue','black', 'blue', 'black', 'blue','black', 'blue', 'black', 'blue'],
+//         [ 'blue', 'black', 'blue', 'black', 'blue', 'black', 'blue', 'black', 'blue', 'black', 'blue', 'black'],
+//         [ 'black', 'blue', 'black', 'blue','black', 'blue', 'black', 'blue','black', 'blue', 'black', 'blue'],
+//         [ 'blue', 'black', 'blue', 'black', 'blue', 'black', 'blue', 'black', 'blue', 'black', 'blue', 'black'],
+//         [ 'black', 'blue', 'black', 'blue','black', 'blue', 'black', 'blue','black', 'blue', 'black', 'blue'],
+//         [ 'blue', 'black', 'blue', 'black', 'blue', 'black', 'blue', 'black', 'blue', 'black', 'blue', 'black']
+//   ],
+//   tileSize: 50,
+// };
 
 
 canvas.height = height;
 canvas.width = width;
+
+function generateBoard(canvasHeight, canvasWidth, squareSize) {
+  // figure out how much space you have to work with.
+  let xCells = Math.floor(canvasHeight / squareSize);
+  let yCells = Math.floor(canvasWidth / squareSize);
+  let board = [];
+
+  for (let i = 0; i < yCells; i++) {
+    let row = [];
+    for (let j = 0; j < xCells; j++) {
+      if ((i + j) % 2 == 0) {
+        row.push('green');
+      } else {
+        row.push('blue');
+      }
+    }
+    board.push(row);
+  }
+  return board;
+}
+  
 
 function drawSquare(xStart, yStart, side, color) {
   /** @function
@@ -61,10 +94,11 @@ function animate() {
    * canvas.
    *
    */
+  console.log(gameboard);
   requestAnimationFrame(animate);
   c.clearRect(0, 0, canvas.width, canvas.height);
 
-  drawBoard(gameboard.board, startPosition.x, startPosition.y, gameboard.tileSize);
+  drawBoard(gameboard, startPosition.x, startPosition.y, tileSize);
 
   // update game state and draw screen
 
