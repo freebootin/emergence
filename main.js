@@ -28,8 +28,10 @@ function drawSquare(xStart, yStart, side, color) {
    * @param {string} color What color the squares border will be.
    */
   c.beginPath();
-  c.strokeStyle = color;
-  c.rect(xStart, yStart, side, side);
+  c.fillStyle = color;
+  //c.strokeStyle = color;
+  //c.rect(xStart, yStart, side, side);
+  c.fillRect(xStart, yStart, side, side);
   c.stroke();
 }
 
