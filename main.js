@@ -6,6 +6,11 @@ const c = canvas.getContext('2d');
 const startPosition = {x: 0, y: 0};
 const tileSize = 10;
 const gameboard = generateBoard(height, width, tileSize);
+const mousePosition = {x: 0, y: 0};
+
+canvas.addEventListener("mousedown", function(e) {
+  howdoi(e, canvas);
+});
 
 canvas.height = height;
 canvas.width = width;
@@ -28,6 +33,19 @@ function generateBoard(canvasHeight, canvasWidth, squareSize) {
     board.push(row);
   }
   return board;
+}
+
+function howdoi(e, canvas) {
+  /** @function
+   * @howdoi
+   * A fucntion to experiment with techniques and features before adding
+   * them to the project.
+   */
+  let rect = canvas.getBoundingClientRect();
+  let x = e.clientX - rect.left;
+  let y = e.clientY - rect.top;
+  console.log(e);
+  console.log("Coordinate x: " + x, "coordinate y: " + y);
 }
   
 function gameOfLife(board) {
