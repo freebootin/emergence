@@ -30,6 +30,22 @@ function generateBoard(canvasHeight, canvasWidth, squareSize) {
   return board;
 }
   
+function gameOfLife(board) {
+  /** @function
+   * @name gameOfLife
+   * Applys the rules for Conway's Game of Life to all the cells of a
+   * rectanglear game board. Then returns an updated gameboard.
+   *
+   * @param {array} board A gameboard consisting of a 2d array.
+   */
+
+  /* Rules:
+   * 1: Any live cell with two or three live neighbors survives.
+   * 2: Any dead cell with three live neighbors becomes a live cell.
+   * 3: all other live cells die in the next generation.
+   */
+  console.log("Game of Life");
+}
 
 function drawSquare(xStart, yStart, side, color) {
   /** @function
