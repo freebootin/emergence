@@ -1,3 +1,4 @@
+"use strict";
 const height = 600;
 const width = 600;
 const canvas = document.querySelector('#canvas');
