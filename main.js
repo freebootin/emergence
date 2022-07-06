@@ -109,12 +109,10 @@ function animate() {
    * canvas.
    *
    */
-  requestAnimationFrame(animate);
   c.clearRect(0, 0, canvas.width, canvas.height);
-
   drawBoard(gameboard, startPosition.x, startPosition.y, tileSize);
+  requestAnimationFrame(animate);
 
-  // update game state and draw screen
 
 }
 
